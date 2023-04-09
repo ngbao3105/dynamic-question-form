@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { TypeQuestionFormEnum } from 'src/app/enum/question-form.enum';
 import { ICheckListForm } from 'src/app/interfaces/question-form.interface';
 
 @Component({
@@ -7,5 +8,6 @@ import { ICheckListForm } from 'src/app/interfaces/question-form.interface';
   styleUrls: ['./review-answer.component.scss']
 })
 export class ReviewAnswerComponent {
+  public typeQuestionFormEnum = TypeQuestionFormEnum;
   @Input() dataSource: ICheckListForm[] = [];
 }

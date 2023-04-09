@@ -2,7 +2,7 @@
     <div class="review-item">
         <h3 class="title">{{data.question}}</h3>
         <div class="content">
-            <ng-container *ngIf="data.formType == 'PARAGRAPH'; else checkboxTemplate">
+            <ng-container *ngIf="data.formType === typeQuestionFormEnum?.PARAGRAPH; else checkboxTemplate">
                 <span>{{data.answers}}</span>
             </ng-container>
             <ng-template #checkboxTemplate>
