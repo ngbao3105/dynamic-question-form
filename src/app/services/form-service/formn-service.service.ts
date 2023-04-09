@@ -50,6 +50,7 @@ export class FormService {
   }
 
   public getNewFormControl(formConfig: IBaseForm) {
+    let requiredValidators = !!formConfig?.isRequired ? [Validators.required] : null;
     return {
       id: formConfig?.id || (new Date().getTime()).toString(),
       question: formConfig?.question || '',
@@ -57,7 +58,7 @@ export class FormService {
       formType: formConfig?.formType || TypeQuestionFormEnum.PARAGRAPH,
       answers: formConfig?.answers || '',
       options: formConfig?.options || [],
-      formControl: formConfig?.formControl || new FormControl(formConfig?.answers || '')
+      formControl: formConfig?.formControl || new FormControl(formConfig?.answers || '', requiredValidators)
     }
   }
 }

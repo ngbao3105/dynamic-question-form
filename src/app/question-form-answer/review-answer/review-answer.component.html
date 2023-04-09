@@ -6,12 +6,14 @@
                 <span>{{data.answers}}</span>
             </ng-container>
             <ng-template #checkboxTemplate>
-                <div *ngFor="let answer of data?.answers">
-                    {{answer}}
-                </div>
-                <p *ngIf="data?.answers?.includes('other')">
-                    {{data.otherValue}}
-                </p>
+                <ng-container *ngFor="let answer of data?.answers">
+                    <div *ngIf="answer !== 'Other'; else otherAnswerTemplate">
+                        {{answer}}
+                    </div>
+                    <ng-template #otherAnswerTemplate>
+                        {{data.otherValue}}
+                    </ng-template>
+                </ng-container>
             </ng-template>
         </div>
     </div>
