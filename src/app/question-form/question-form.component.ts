@@ -11,6 +11,7 @@ import { QuestionFormBuilderComponent } from '../question-form-builder/question-
 export class QuestionFormComponent {
   constructor(private _router: Router, private _matDialog: MatDialog) { }
   public openQuestionForm() {
+    this._router.navigateByUrl('/form/builder');
     let questionDialog = this._matDialog.open(QuestionFormBuilderComponent, {
       width: '600px',
     });
