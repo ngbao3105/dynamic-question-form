@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { TypeQuestionFormEnum } from 'src/app/enum/question-form.enum';
 import { IBaseForm } from 'src/app/interfaces/question-form.interface';
 
@@ -24,7 +24,7 @@ export class FormService {
         isRequired: true,
         formType: TypeQuestionFormEnum.PARAGRAPH,
         answers: '',
-        formControl: new FormControl('')
+        formControl: new FormControl('', Validators.required)
       },
       {
         id: (new Date()).getTime().toString(),
@@ -38,7 +38,7 @@ export class FormService {
           { id: 'Python', label: 'Python' },
           { id: 'C#', label: 'C#' },
           { id: 'Other', label: 'Other' }],
-        formControl: new FormControl([])
+        formControl: new FormControl([], Validators.required)
       }
     ]
   }

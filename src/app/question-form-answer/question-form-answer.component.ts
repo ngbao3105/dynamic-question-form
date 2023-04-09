@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +9,11 @@ import { Router } from '@angular/router';
 })
 export class QuestionFormAnswerComponent {
 
-  constructor(private _router: Router, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private _router: Router, @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<QuestionFormAnswerComponent>,
+  ) { }
   back() {
+    this.dialogRef.close();
     this._router.navigate(['/form/builder']);
   }
 }
