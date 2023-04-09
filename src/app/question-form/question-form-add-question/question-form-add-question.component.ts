@@ -72,7 +72,6 @@ export class QuestionFormAddQuestionComponent {
     if (outputData.options && outputData.options.length) {
       outputData.options = outputData.options.map((item: any) => ({ id: item.option, label: item.option }));
     };
-
     this.dialogRef.close(outputData);
   }
 }

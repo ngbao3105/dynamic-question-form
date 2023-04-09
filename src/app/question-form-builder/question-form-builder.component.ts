@@ -26,14 +26,12 @@ export class QuestionFormBuilderComponent implements OnInit, OnDestroy {
       config.formControl?.valueChanges.pipe(tap(value => config['answers'] = value)).subscribe()
     })
 
-    this.formGroup.valueChanges.subscribe(() => {
-      console.log(this.formGroup.getRawValue());
-    })
   }
 
   addNewQuestion() {
     let newQuestionDialog = this._dialog.open(QuestionFormAddQuestionComponent, { width: '500px', data: { title: 'Add new question' }, panelClass: 'my-dialog-class' })
     newQuestionDialog.afterClosed().subscribe(response => {
+      if (!response) { return; }
       this.questionFormConfigs = this._formService.reRenderQuestionForm([...this._formService.questionFormConfig, response]);
 
     })
@@ -43,8 +41,7 @@ export class QuestionFormBuilderComponent implements OnInit, OnDestroy {
     if (!this.formGroup.invalid) {
 
       let answerDialog = this._dialog.open(QuestionFormAnswerComponent, { width: '500px', data: this.questionFormConfigs, panelClass: 'my-dialog-class' })
-      answerDialog.afterClosed().subscribe(response => {
-      })
+
     }
   }
 
