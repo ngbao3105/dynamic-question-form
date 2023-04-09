@@ -39,9 +39,10 @@ export class QuestionFormBuilderComponent implements OnInit, OnDestroy {
 
   reviewAnswer() {
     if (!this.formGroup.invalid) {
-
+  this._router.navigateByUrl('/form/answers');
       let answerDialog = this._dialog.open(QuestionFormAnswerComponent, { width: '500px', data: this.questionFormConfigs, panelClass: 'my-dialog-class' })
-      answerDialog.afterClosed().subscribe(response => {
+      answerDialog.afterClosed().subscribe(() => {
+        this._router.navigateByUrl('/form/builder');
       })
     }
   }
