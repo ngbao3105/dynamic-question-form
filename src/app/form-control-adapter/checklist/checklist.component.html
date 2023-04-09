@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <div class="question">{{formConfig?.question}} <ng-container
+            *ngIf="formConfig?.isRequired"><span>*</span></ng-container></div>
+    <div class="options" *ngFor="let option of formConfig?.options; index as i">
+        <mat-checkbox [value]="option?.id||''" [checked]="!!formConfig?.answers?.includes(option?.id ||'')"
+            (change)="optionChange(option, $event)">
+            {{option.label}}
+        </mat-checkbox>
+        <textarea [formControl]="otherAnswerControl"
+            *ngIf="!!formConfig?.answers?.includes('Other') && option?.id === 'Other'" #otherAnswer rows="5"></textarea>
+    </div>
+</div>

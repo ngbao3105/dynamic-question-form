@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <ng-container *ngFor="let formConfig of questionFormConfigs">
+        <div class="form">
+            <app-form-control-adapter [formConfig]="formConfig"></app-form-control-adapter>
+        </div>
+    </ng-container>
+    <div class="add-new-question" (click)="addNewQuestion()">
+        <p>Add New Question</p>
+    </div>
+    <div class="review-answer" (click)="reviewAnswer()">
+        <button>Review my answer ></button>
+    </div>
+</div>

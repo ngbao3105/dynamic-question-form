@@ -1,0 +1,16 @@
+.question-button{
+    font-weight: 700;
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color:green;
+    border: none;
+    &:hover{
+      background-color: rgba(green,0.75);
+    }
+    &:active {
+      background-color: rgba(green,0.9);
+  
+    }
+  }
+  

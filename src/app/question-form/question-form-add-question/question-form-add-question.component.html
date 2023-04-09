@@ -1,0 +1,55 @@
+<div class="mat-dialog-header">
+    <h3 mat-dialog-title>
+        {{data.title}}
+    </h3>
+    <span mat-dialog-close class="close">&times;</span>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="formGroup">
+
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Select type question</mat-label>
+                <mat-select formControlName="formType">
+                    <mat-option *ngFor="let option of typeQuestionForm" [value]="option">{{option}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>Type question here</mat-label>
+                <input formControlName="question" matInput placeholder="Type question here">
+            </mat-form-field>
+        </div>
+
+        <div *ngIf="formGroup.controls['options']" class="form-group" formArrayName="options">
+            <ng-container *ngFor="let skill of optionsForm.controls; let i=index">
+                <div [formGroupName]="i">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Add answer option</mat-label>
+                        <input formControlName="option" matInput placeholder="Add answer option">
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </div>
+
+        <div *ngIf="formGroup.value.formType ==  typeQuestionFormEnum.CHECKLIST" class="form-group mb-8">
+            <label (click)="addOtherOption()">
+                + Add another answer</label>
+        </div>
+
+        <div *ngIf="formGroup.controls['isHasOtherOption']" class="form-group mb-8">
+            <mat-checkbox formControlName="isHasOtherOption" color="primary">Allow user to spectify their own
+                answer</mat-checkbox>
+        </div>
+
+        <div class="form-group">
+            <mat-checkbox formControlName="isRequired" color="primary">This is required fields</mat-checkbox>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-flat-button [color]="'primary'" (click)="submit()">Submit</button>
+</mat-dialog-actions>

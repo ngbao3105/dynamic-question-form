@@ -1,0 +1,20 @@
+.wrapper{
+    padding: 25px;
+}
+
+.form:not(:last-child){
+    margin-bottom: 25px;
+}
+
+.add-new-question{
+   cursor: pointer;
+   text-decoration: underline; 
+}
+
+.review-answer{
+    display: flex;
+    justify-content: flex-end;
+    button{
+        padding: 10px;
+    }
+}

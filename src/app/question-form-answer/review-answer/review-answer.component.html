@@ -1,0 +1,18 @@
+<ng-container *ngFor="let data of dataSource">
+    <div class="review-item">
+        <h3 class="title">{{data.question}}</h3>
+        <div class="content">
+            <ng-container *ngIf="data.formType == 'PARAGRAPH'; else checkboxTemplate">
+                <span>{{data.answers}}</span>
+            </ng-container>
+            <ng-template #checkboxTemplate>
+                <div *ngFor="let answer of data?.answers">
+                    {{answer}}
+                </div>
+                <p *ngIf="data?.answers?.includes('other')">
+                    {{data.otherValue}}
+                </p>
+            </ng-template>
+        </div>
+    </div>
+</ng-container>

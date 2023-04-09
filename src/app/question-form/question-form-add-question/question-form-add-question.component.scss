@@ -1,0 +1,33 @@
+.form-group .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-dialog-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-group label {
+    cursor: pointer;
+  }
+  
+  
+  .form-group label:hover {
+    color: #3f51b5;
+  }
+  
+  .mb-8 {
+    margin-bottom: 8px;
+  }
+  
+  .mt-8 {
+    margin-top: 8px;
+  }
+  
+  .close {
+    font-size: 30px;
+    cursor: pointer;
+    &:hover {
+      color: #3f51b5;
+    }
+  }

@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <div class="question">{{dynamicFormConfig?.question}}
+        <ng-container *ngIf="dynamicFormConfig?.isRequired">
+            <span>*</span>
+        </ng-container>
+    </div>
+    <textarea rows='5' [formControl]="formControl"></textarea>
+</div>

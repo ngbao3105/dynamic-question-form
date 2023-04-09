@@ -1,0 +1,4 @@
+<ng-container [ngSwitch]="formConfig?.formType">
+    <app-text-input *ngSwitchCase="FORM_TYPE_ENUM.PARAGRAPH" [formConfig]="formConfig || {}"></app-text-input>
+    <app-checklist *ngSwitchCase="FORM_TYPE_ENUM.CHECKLIST" [formConfig]="formConfig"></app-checklist>
+</ng-container>

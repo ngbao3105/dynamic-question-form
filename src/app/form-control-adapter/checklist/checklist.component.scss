@@ -1,0 +1,13 @@
+.question{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    resize: none;
+}

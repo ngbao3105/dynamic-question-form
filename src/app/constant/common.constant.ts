@@ -1,0 +1,1 @@
+export const MAXIUM_ANWSER = 5;
